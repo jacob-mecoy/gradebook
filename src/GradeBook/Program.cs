@@ -1,5 +1,7 @@
 ﻿//Our application is a console application i.e. it is run from the command line
 using System;
+//namespace that holds the List type we use
+using System.Collections.Generic;
 
 namespace GradeBook
 {
@@ -9,20 +11,24 @@ namespace GradeBook
         //our methods parameter is an array of strings called 'args'
         static void Main(string[] args)
         {
-            //if we know what numbers are going to be added to our array then we can add
-            //them in the initialisation statement by adding curly braces at the end of
-            //"new[]". We also don't need to specify the size of the array or the type
-            //of variables it holds. So we can get rid of "double" and just use "new[]"
-            var numbers = new[] { 12.45, 90.1, 5.9090, 9.7789 };
+            //using the List type allows us to have a dynamically sizeable array that we can easily add and remove from. This is preferred to using a standard array. We can initialise it in the same way as a regular array
+            var grades = new List<double>() { 12.45, 90.1, 5.9090, 9.7789 };
+            //we can use the .Add method on a list to add to it
+            grades.Add(59.1);
 
-            var result = 0.0;
-
-            foreach(var number in numbers)
+            var total = 0.0;
+            
+            foreach(var number in grades)
             { 
-                result += number;
+                total += number;
             }
 
-            Console.WriteLine($"The result of our addition is {result}");
+            Console.WriteLine($"The total of our addition is {total}");
+
+            //Compute average of grades
+            var average = total / grades.Count;
+            
+            Console.WriteLine($"Our average is {average}");
 
             //set up a conditional statement that checks whether or not an argument is
             //passed when running the program
