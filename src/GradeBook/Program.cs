@@ -9,15 +9,22 @@ namespace GradeBook
         //our methods parameter is an array of strings called 'args'
         static void Main(string[] args)
         {
-            //define a variable of type double and instantiate it by assigning a value to it
-            double x = 34.1;
-            //we can use the var keyword when defining a variable and initialising it
-            //on the same line. When using the var keyword we take advantage of implicit
-            //typing in C#. The compiler figures out the type of our variable.
-            var y = 90.1;
-            var z = x + y;
+            //define an array of doubles. We must assign a value to our variable by using
+            //the word "new", otherwise our code will throw an error as unassigned variables
+            //tend to cause problems in our code
+            var numbers = new double[3];
+            numbers[0] = 12.45;
+            numbers[1] = 90.1;
+            numbers[2] = 5.9090;
 
-            Console.WriteLine($"The result of our addition is {z}");
+            double result = new double();
+
+            for (int i=0; i < numbers.Length; i++) 
+            { 
+                result += numbers[i];
+            }
+
+            Console.WriteLine($"The result of our addition is {result}");
 
             //set up a conditional statement that checks whether or not an argument is
             //passed when running the program
