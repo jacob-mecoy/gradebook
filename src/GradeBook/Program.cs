@@ -9,19 +9,17 @@ namespace GradeBook
         //our methods parameter is an array of strings called 'args'
         static void Main(string[] args)
         {
-            //define an array of doubles. We must assign a value to our variable by using
-            //the word "new", otherwise our code will throw an error as unassigned variables
-            //tend to cause problems in our code
-            var numbers = new double[3];
-            numbers[0] = 12.45;
-            numbers[1] = 90.1;
-            numbers[2] = 5.9090;
+            //if we know what numbers are going to be added to our array then we can add
+            //them in the initialisation statement by adding curly braces at the end of
+            //"new[]". We also don't need to specify the size of the array or the type
+            //of variables it holds. So we can get rid of "double" and just use "new[]"
+            var numbers = new[] { 12.45, 90.1, 5.9090, 9.7789 };
 
-            double result = new double();
+            var result = 0.0;
 
-            for (int i=0; i < numbers.Length; i++) 
+            foreach(var number in numbers)
             { 
-                result += numbers[i];
+                result += number;
             }
 
             Console.WriteLine($"The result of our addition is {result}");
